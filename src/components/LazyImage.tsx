@@ -7,6 +7,7 @@ const LazyImage = memo((props: ImageProps & { containerClass?: string }) => {
   const [loaded, setLoaded] = useState(false);
 
   const imageProps = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { containerClass, className, src, alt, ...imageProps } = props;
     return imageProps;
   }, [props]);
