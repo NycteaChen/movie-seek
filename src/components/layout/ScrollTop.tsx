@@ -10,7 +10,7 @@ const GoTop = memo(() => {
 
   return (
     <button
-      className="fixed right-3 bottom-5 md:right-10 md:bottom-10 cursor-pointer duration-300 hover:opacity-70"
+      className="fixed right-3 bottom-5 md:right-10 md:bottom-10 cursor-pointer duration-300 hover:opacity-70 animate-bounce"
       aria-label="Go to top"
       onClick={() => scrollToTop()}
     >
