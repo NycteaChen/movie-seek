@@ -12,7 +12,7 @@ const Logo = memo(({ width = 133, height = 43 }: LogoProps) => {
     <Link href="/">
       <h1 className="indent-[101%] overflow-hidden whitespace-nowrap absolute">MOVIE SEEK</h1>
       <Image
-        src={`/logo.svg`}
+        src="/logo.svg"
         alt="MOVIE SEEK logo"
         width={width}
         height={height}
