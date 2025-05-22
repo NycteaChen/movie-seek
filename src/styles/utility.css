@@ -1,3 +1,8 @@
 @utility container {
   margin-inline: auto;
 }
+
+@utility container-sm {
+  margin-inline: auto;
+  max-width: 80rem;
+}
