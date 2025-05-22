@@ -1,10 +1,10 @@
-'use client';
+interface SearchParamsType {
+  searchParams: Promise<{ query: string }>;
+}
 
-import { useSearchParams } from 'next/navigation';
-
-const Search = () => {
-  const searchParams = useSearchParams();
-  const query = searchParams.get('query') || '';
+const Search = async ({ searchParams }: SearchParamsType) => {
+  const params = await searchParams;
+  const { query } = params;
   return (
     <div className="pt-20">
       <section>
