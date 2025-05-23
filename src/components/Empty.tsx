@@ -10,7 +10,7 @@ const Empty = memo(() => {
         width={80}
         height={80}
       />
-      <p>暫無資料</p>
+      <p>No Data</p>
     </div>
   );
 });
