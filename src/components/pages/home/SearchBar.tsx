@@ -3,10 +3,12 @@ import { memo, useCallback, useState } from 'react';
 import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const SearchBar = memo(() => {
-  const [keyword, setKeyword] = useState<string>('');
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query') || '';
+  const [keyword, setKeyword] = useState<string>(query);
   const router = useRouter();
 
   const redirectToSearch = useCallback(() => {
@@ -16,6 +18,7 @@ const SearchBar = memo(() => {
   return (
     <div className="flex items-center space-x-5 w-full max-w-[500px] bg-primary/80 rounded-[25px] px-2 py-1.5">
       <Input
+        value={keyword}
         className="border-0 rounded-[20px] !bg-foreground !text-background"
         placeholder="Search for a movie"
         inputMode="search"

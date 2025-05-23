@@ -1,0 +1,28 @@
+'use client';
+import { memo } from 'react';
+import ListArea from '../home/ListArea';
+import { useApi } from '@/hooks/useApi';
+import { useSearchParams } from 'next/navigation';
+import Pagination from '@/components/Pagination';
+
+const SearchList = memo(() => {
+  const searchParams = useSearchParams();
+  const query = searchParams.get('query') || '';
+  const page = searchParams.get('page') || '';
+
+  const { data, error, isLoading } = useApi<MovieList>(`/search/movie?query=${query}&page=${page || 1}`);
+
+  return (
+    <>
+      <ListArea
+        title={`${data?.total_results !== undefined ? `${data?.total_results} ` : '-- '}Search Results`}
+        list={data?.results || []}
+        loading={isLoading}
+      />
+      <Pagination totalPages={data?.total_pages} />
+    </>
+  );
+});
+
+SearchList.displayName = 'SearchList';
+export default SearchList;
