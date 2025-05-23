@@ -2171,6 +2171,7 @@ const MovieDetail = async ({ params }: ParamsType) => {
           width={3840}
           height={2160}
           className="w-full h-full object-cover opacity-20 absolute top-0 left-0"
+          loading="lazy"
         />
         <section className="w-full h-full z-[1] relative">
           <div className="container-sm h-full flex gap-12 justify-center md:justify-start">

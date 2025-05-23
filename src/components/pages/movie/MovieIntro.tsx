@@ -23,7 +23,7 @@ const MovieIntro = memo(({ detailData, creditsData, className }: MovieIntroProps
         </h2>
         <div className="flex items-start gap-2 mb-3">
           <Image
-            src={`/icons/star.svg`}
+            src="/icons/star.svg"
             alt="star"
             width={20}
             height={20}

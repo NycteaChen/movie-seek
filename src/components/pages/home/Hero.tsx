@@ -11,6 +11,7 @@ const Hero = memo(() => {
         width={3000}
         height={2001}
         className="w-full h-full max-h-[1080px] object-cover opacity-40 absolute top-0 left-0"
+        loading="lazy"
       />
       <section className="!py-20">
         <div className="container z-[1] relative flex flex-col justify-center items-center text-center">
