@@ -8,15 +8,19 @@ import MovieInfo from '@/components/pages/movie/MovieInfo';
 import MovieReview from '@/components/pages/movie/MovieReview';
 import { useApi } from '@/hooks/useApi';
 import Loading from '@/components/Loading';
+import Empty from '@/components/Empty';
 
 const MovieDetail = () => {
   const { id } = useParams();
 
-  const { data: detailData, isLoading: detailLoading } = useApi<MovieDetailData>(`/movie/${id}`);
-  const { data: creditsData, isLoading: creditsLoading } = useApi<MovieCreditsData>(`/movie/${id}/credits`);
-  const { data: videoData, isLoading: videoLoading } = useApi<MovieVideoList>(`/movie/${id}/videos`);
+  const { data: detailData, error: detailError, isLoading: detailLoading } = useApi<MovieDetailData>(`/movie/${id}`);
+  const { data: creditsData, error: creditsError, isLoading: creditsLoading } = useApi<MovieCreditsData>(`/movie/${id}/credits`);
+  const { data: videoData, error: videoError, isLoading: videoLoading } = useApi<MovieVideoList>(`/movie/${id}/videos`);
 
   if (detailLoading) return <Loading />;
+
+  if (detailError || creditsError || videoError) return <Empty msg="Oops! Something wrong!" />;
+
   const coverImage = detailData?.backdrop_path || detailData?.poster_path;
 
   return (

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import Image from 'next/image';
 
-const Empty = memo(() => {
+const Empty = memo(({ msg = 'No Data' }: { msg?: string }) => {
   return (
     <div className="flex flex-col h-[200px] justify-center items-center text-muted-foreground space-y-3">
       <Image
@@ -10,7 +10,7 @@ const Empty = memo(() => {
         width={80}
         height={80}
       />
-      <p>No Data</p>
+      <p>{msg}</p>
     </div>
   );
 });
