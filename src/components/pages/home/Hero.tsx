@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, Suspense } from 'react';
 import Image from 'next/image';
 import SearchBar from './SearchBar';
 
@@ -17,7 +17,9 @@ const Hero = memo(() => {
         <div className="container z-[1] relative flex flex-col justify-center items-center text-center">
           <h2 className="text-4xl font-bold text-primary">Find Your Next Favorite Movie</h2>
           <p className="text-2xl font-bold mt-4 mb-8">Explore Now</p>
-          <SearchBar />
+          <Suspense>
+            <SearchBar />
+          </Suspense>
         </div>
       </section>
     </div>
