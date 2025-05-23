@@ -20,10 +20,10 @@ const MovieList = memo(({ list, loading }: { list: MovieData[]; loading?: boolea
               >
                 <article>
                   <LazyImage
-                    src={item.backdrop_path ? `${imgPath}original${item.backdrop_path}` : ''}
+                    src={item.poster_path ? `${imgPath}original${item.poster_path}` : ''}
                     alt={item.title as string}
-                    width={2000}
-                    height={3000}
+                    width={420}
+                    height={630}
                     className="aspect-2/3 rounded-md duration-300 border-solid border-transparent border-2 group-hover:scale-[1.02] group-hover:border-primary"
                   />
                   <h4 className="font-bold md:text-lg mt-2 md:mt-3 group-hover:text-primary duration-300">{item.title}</h4>
