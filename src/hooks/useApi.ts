@@ -25,15 +25,15 @@ export const usePost = <TResponse = unknown>(endpoint: string): UsePostResult<TR
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const post = async (body?: any) => {
+  const post = async (body?: Record<string, unknown>) => {
     setIsLoading(true);
     setError(null);
 
     try {
       const response = await axios.post<TResponse>(endpoint, body);
       setData(response.data);
-    } catch (err: any) {
-      setError(err);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err : new Error(String(err)));
     } finally {
       setIsLoading(false);
     }
