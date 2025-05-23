@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 
 const Hero = memo(() => {
   return (
-    <div className="relative w-full aspect-1920/1080 min-h-[60dvh] max-h-[90dvh] flex justify-center items-center">
+    <div className="relative w-full aspect-1920/1080 min-h-[90dvh] md:min-h-[60dvh] md:max-h-[90dvh] flex justify-center items-center">
       <Image
         src="/home/hero.jpg"
         alt="home-hero"
@@ -12,7 +12,7 @@ const Hero = memo(() => {
         height={2001}
         className="w-full h-full max-h-[1080px] object-cover opacity-40 absolute top-0 left-0"
       />
-      <section>
+      <section className="!py-20">
         <div className="container z-[1] relative flex flex-col justify-center items-center text-center">
           <h2 className="text-4xl font-bold text-primary">Find Your Next Favorite Movie</h2>
           <p className="text-2xl font-bold mt-4 mb-8">Explore Now</p>
