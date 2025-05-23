@@ -50,6 +50,7 @@ interface MovieCastData {
 
 interface MovieCrewData {
   adult: boolean;
+  gender: number;
   id: number;
   known_for_department: string;
   name: string;
@@ -64,7 +65,7 @@ interface MovieCrewData {
 interface MovieCreditsData {
   id: MovieData['id'];
   cast: MovieCastData[];
-  crew: MovieCastData[];
+  crew: MovieCrewData[];
 }
 
 interface MovieVideoItem {
