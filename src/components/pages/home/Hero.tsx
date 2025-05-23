@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 
 const Hero = memo(() => {
   return (
-    <div className="relative w-full aspect-1920/1080 min-h-[90dvh] md:min-h-[60dvh] md:max-h-[90dvh] flex justify-center items-center">
+    <div className="relative w-full aspect-1920/1080 min-h-[90dvh] md:min-h-[60dvh] md:max-h-[1080px] flex justify-center items-center">
       <Image
         src="/home/hero.jpg"
         alt="home-hero"
