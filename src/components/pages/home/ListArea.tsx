@@ -5,7 +5,7 @@ import MovieList from '@/components/MovieList';
 interface ListAreaProps {
   title: string;
   iconName?: string;
-  list: MovieData[];
+  list: SearchMovieData[];
   sectionClass?: string;
   loading?: boolean;
 }

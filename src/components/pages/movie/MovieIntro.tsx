@@ -9,7 +9,7 @@ const renderMovieTime = (time: number) => {
 };
 
 interface MovieIntroProps {
-  detailData: MovieData;
+  detailData: MovieDetailData;
   creditsData: MovieCreditsData;
   className?: string;
 }

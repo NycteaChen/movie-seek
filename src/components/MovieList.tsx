@@ -6,7 +6,7 @@ import Loading from '@/components/Loading';
 
 const imgPath = 'https://image.tmdb.org/t/p/';
 
-const MovieList = memo(({ list, loading }: { list: MovieData[]; loading?: boolean }) => {
+const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | SearchMovieData[]; loading?: boolean }) => {
   if (loading) return <Loading />;
   return (
     <>
@@ -21,7 +21,7 @@ const MovieList = memo(({ list, loading }: { list: MovieData[]; loading?: boolea
                 <article>
                   <LazyImage
                     src={item.poster_path ? `${imgPath}original${item.poster_path}` : ''}
-                    alt={item.title as string}
+                    alt={item.title}
                     width={420}
                     height={630}
                     className="aspect-2/3 rounded-md duration-300 border-solid border-transparent border-2 group-hover:scale-[1.02] group-hover:border-primary"
