@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 const Header = memo(() => {
   const pathname = usePathname();
   return (
-    <header className={cn('z-20 w-full flex items-center', pathname === '/' ? 'absolute top-0 bg-gradient-to-b from-background to-transparent border-b border-b-foreground' : 'relative bg-black')}>
+    <header className={cn('z-20 w-full', pathname === '/' ? 'absolute top-0 bg-gradient-to-b from-background to-transparent border-b border-b-foreground' : 'relative bg-black')}>
       <section className="!py-3">
         <div className="container flex justify-between">
           <Logo />
