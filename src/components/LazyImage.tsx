@@ -2,6 +2,7 @@
 
 import Image, { ImageProps } from 'next/image';
 import { useMemo, useState, memo } from 'react';
+import { cn } from '@/lib/utils';
 
 const LazyImage = memo((props: ImageProps & { containerClass?: string }) => {
   const [loaded, setLoaded] = useState(false);
@@ -13,16 +14,27 @@ const LazyImage = memo((props: ImageProps & { containerClass?: string }) => {
   }, [props]);
 
   return (
-    <div className={`relative overflow-hidden flex-shrink-0 ${props.containerClass}`}>
-      {!loaded && <div className="absolute inset-0 bg-muted animate-pulse z-0" />}
-      {props.src && (
+    <div className={cn('relative flex-shrink-0', props.containerClass)}>
+      {!loaded && <div className={cn('absolute inset-0 bg-muted animate-pulse z-0', props.className)} />}
+      {props.src ? (
         <Image
           src={props.src}
           alt={props.alt}
           {...imageProps}
           onLoad={() => setLoaded(true)}
-          className={`object-cover transition-all duration-500 ease-in-out ${loaded ? 'opacity-100' : 'opacity-0'} ${props.className}`}
+          className={cn('object-cover transition-all duration-500 ease-in-out', loaded ? 'opacity-100' : 'opacity-0', props.className)}
         />
+      ) : (
+        <div className={cn('flex items-center justify-center bg-foreground/20', props.className)}>
+          <Image
+            src="/icons/not-found.svg"
+            alt="not-found"
+            {...imageProps}
+            width={80}
+            height={80}
+            onLoad={() => setLoaded(true)}
+          />
+        </div>
       )}
     </div>
   );
