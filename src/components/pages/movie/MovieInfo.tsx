@@ -45,7 +45,7 @@ const infoList: { title: string; value: keyof MovieDetailData }[] = [
   }
 ];
 
-const formatValue = (value: any): string => {
+const formatValue = (value: unknown): string => {
   if (Array.isArray(value)) {
     return value.map((v) => (typeof v === 'object' ? v.name : v)).join(', ');
   } else if (typeof value === 'number' && value) {

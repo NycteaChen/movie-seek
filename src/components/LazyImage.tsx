@@ -15,7 +15,7 @@ const LazyImage = memo((props: ImageProps & { containerClass?: string }) => {
 
   return (
     <div className={cn('w-full h-full relative flex-shrink-0', props.containerClass)}>
-      {!loaded && <div className={cn('absolute inset-0 bg-muted animate-pulse z-0', props.className)} />}
+      {!loaded && props.src ? <div className={cn('absolute inset-0 bg-muted animate-pulse z-0', props.className)} /> : ''}
       {props.src ? (
         <Image
           src={props.src}
