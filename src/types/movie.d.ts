@@ -80,7 +80,7 @@ interface MovieVideoItem {
   published_at: string;
   id: string;
 }
-interface MovieVideoData {
+interface MovieVideoList {
   id: number;
   results: MovieVideoItem[];
 }
@@ -100,7 +100,11 @@ interface MovieReviewItem {
   url: string;
 }
 
-interface MovieReviewData extends PageQuery {
+interface MovieReviewList extends PageQuery {
   id: MovieData['id'];
   results: MovieReviewItem[];
+}
+
+interface MovieList extends PageQuery {
+  results: MovieItemData[];
 }
