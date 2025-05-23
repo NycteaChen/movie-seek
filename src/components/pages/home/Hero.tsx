@@ -4,13 +4,13 @@ import SearchBar from './SearchBar';
 
 const Hero = memo(() => {
   return (
-    <div className="relative w-full aspect-1920/1080 min-h-[90dvh] md:min-h-[60dvh] md:max-h-[1080px] flex justify-center items-center">
+    <div className="relative w-full aspect-1920/1080 min-h-[90dvh] md:min-h-[60dvh] md:max-h-[90dvh] flex justify-center items-center">
       <Image
         src="/home/hero.jpg"
         alt="home-hero"
         width={3000}
         height={2001}
-        className="w-full h-full max-h-[1080px] object-cover opacity-40 absolute top-0 left-0"
+        className="w-full h-full max-h-full object-cover opacity-40 absolute top-0 left-0"
         loading="lazy"
       />
       <section className="!py-20">
