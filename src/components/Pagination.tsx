@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, Suspense } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { Pagination as ShaPagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 
@@ -59,7 +59,7 @@ const Pagination = memo(({ maxVisiblePages = 3, totalPages = 1, pageIndex = 1, s
   const pages = generatePageNumbers();
 
   return (
-    <>
+    <Suspense>
       {totalPages > 1 ? (
         <section>
           <div className="container">
@@ -100,7 +100,7 @@ const Pagination = memo(({ maxVisiblePages = 3, totalPages = 1, pageIndex = 1, s
       ) : (
         ''
       )}
-    </>
+    </Suspense>
   );
 });
 

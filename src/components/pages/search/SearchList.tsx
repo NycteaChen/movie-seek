@@ -1,5 +1,5 @@
 'use client';
-import { memo } from 'react';
+import { memo, Suspense } from 'react';
 import ListArea from '../home/ListArea';
 import { useApi } from '@/hooks/useApi';
 import { useSearchParams } from 'next/navigation';
@@ -13,14 +13,14 @@ const SearchList = memo(() => {
   const { data, isLoading } = useApi<MovieList>(`/search/movie?query=${query}&page=${page || 1}`);
 
   return (
-    <>
+    <Suspense>
       <ListArea
         title={`${data?.total_results !== undefined ? `${data?.total_results} ` : '-- '}Search Results`}
         list={data?.results || []}
         loading={isLoading}
       />
       <Pagination totalPages={data?.total_pages} />
-    </>
+    </Suspense>
   );
 });
 
