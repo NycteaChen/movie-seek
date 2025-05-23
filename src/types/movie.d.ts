@@ -1,7 +1,7 @@
 interface MovieData {
   adult: boolean;
   id: number;
-  backdrop_path: string;
+  backdrop_path: string | null;
   original_language: string;
   original_title: string;
   overview: string;
@@ -48,7 +48,7 @@ interface MovieCastData {
   order: number;
 }
 
-interface MovieCastData {
+interface MovieCrewData {
   adult: boolean;
   id: number;
   known_for_department: string;
@@ -61,7 +61,7 @@ interface MovieCastData {
   job: string;
 }
 
-interface MovieCrewData {
+interface MovieCreditsData {
   id: MovieData['id'];
   cast: MovieCastData[];
   crew: MovieCastData[];
