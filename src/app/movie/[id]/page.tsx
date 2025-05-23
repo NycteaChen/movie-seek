@@ -41,8 +41,8 @@ const MovieDetail = () => {
               alt={`${detailData?.title}-post`}
               width={320}
               height={480}
-              className="aspect-2/3 rounded-md h-full w-full max-w-[200px] md:max-w-[320px]"
-              containerClass="w-auto"
+              className="aspect-2/3 rounded-md h-full w-full"
+              containerClass="w-full max-w-[200px] md:max-w-[320px]"
             />
             <MovieIntro
               detailData={detailData}
