@@ -13,9 +13,9 @@ const Hero = memo(() => {
         className="w-full h-full max-h-[1080px] object-cover opacity-40 absolute top-0 left-0"
       />
       <section>
-        <div className="container z-[1] relative flex flex-col gap-4 justify-center items-center text-center">
+        <div className="container z-[1] relative flex flex-col justify-center items-center text-center">
           <h2 className="text-4xl font-bold text-primary">Find Your Next Favorite Movie</h2>
-          <p className="text-2xl font-bold">Explore Now</p>
+          <p className="text-2xl font-bold mt-4 mb-8">Explore Now</p>
           <SearchBar />
         </div>
       </section>
