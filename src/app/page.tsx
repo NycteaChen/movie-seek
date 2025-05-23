@@ -28,18 +28,18 @@ const Home = () => {
       <ListArea
         title="Hot"
         iconName="hot"
-        list={mockList}
+        list={mockList.slice(0, 10)}
       />
       <ListArea
         sectionClass="bg-foreground/10"
         title="Ranking"
         iconName="star"
-        list={mockList}
+        list={mockList.slice(0, 10)}
       />
       <ListArea
         title="Coming Soon"
         iconName="calendar"
-        list={mockList}
+        list={mockList.slice(0, 10)}
       />
     </>
   );
