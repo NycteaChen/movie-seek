@@ -1,1 +1,1 @@
-type MovieData = Record<string, string | number | string[] | number[]>;
+type MovieData = Record<string, string | number | string[] | number[] | null | boolean>;
