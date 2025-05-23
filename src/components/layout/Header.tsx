@@ -21,7 +21,7 @@ const Header = memo(({ isFixed }: { isFixed?: boolean }) => {
 
   return (
     <header className={cn('z-20 w-full', pathname === '/' ? 'absolute top-0 bg-gradient-to-b from-background to-transparent border-b border-b-foreground' : 'relative bg-black', renderHeaderStatus)}>
-      <section className="!py-3">
+      <section className="section !py-3">
         <div className="container flex justify-between items-center">
           <Logo />
           <div className="space-x-3">

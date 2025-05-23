@@ -34,7 +34,7 @@ const MovieDetail = () => {
           className="w-full h-full object-cover opacity-20 absolute top-0 left-0"
           loading="lazy"
         />
-        <section className="w-full h-full z-[1] relative">
+        <section className="section w-full h-full z-[1] relative">
           <div className="container-sm h-full flex gap-12 justify-center md:justify-start">
             <LazyImage
               src={detailData?.poster_path ? `${process.env.NEXT_PUBLIC_TMDB_IMG_PATH}w500${detailData?.poster_path}` : ''}
@@ -52,7 +52,7 @@ const MovieDetail = () => {
           </div>
         </section>
       </div>
-      <section>
+      <section className="section">
         <div className="container-sm">
           <MovieIntro
             detailData={detailData}

@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import Image from 'next/image';
 import MovieList from '@/components/MovieList';
+import { cn } from '@/lib/utils';
 
 interface ListAreaProps {
   title: string;
@@ -13,7 +14,7 @@ interface ListAreaProps {
 
 const ListArea = memo(({ title, iconName, list, sectionClass, loading, watchListStatus }: ListAreaProps) => {
   return (
-    <section className={sectionClass}>
+    <section className={cn('section', sectionClass)}>
       <div className="container-sm">
         <h3 className="flex items-center gap-2 md:gap-3 text-xl md:text-3xl font-bold mb-2 md:mb-4">
           {iconName && (

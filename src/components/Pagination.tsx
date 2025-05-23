@@ -61,7 +61,7 @@ const PaginationBar = ({ maxVisiblePages = 3, totalPages = 1, pageIndex = 1, set
   return (
     <>
       {totalPages > 1 ? (
-        <section>
+        <section className="section">
           <div className="container">
             <ShaPagination className="scale-80 sm:scale-100">
               <PaginationContent>
