@@ -2,10 +2,10 @@
 
 import { memo } from 'react';
 import ListArea from '@/components/pages/home/ListArea';
-import { useApi } from '@/hooks/useApi';
+import { useGet } from '@/hooks/useApi';
 
 const UpcomingMovie = memo(() => {
-  const { data, isLoading } = useApi<MovieList>('/movie/upcoming');
+  const { data, isLoading } = useGet<MovieList>('/movie/upcoming');
 
   return (
     <ListArea

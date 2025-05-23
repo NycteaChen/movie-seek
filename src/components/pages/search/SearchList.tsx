@@ -1,7 +1,7 @@
 'use client';
 import { memo, Suspense } from 'react';
 import ListArea from '../home/ListArea';
-import { useApi } from '@/hooks/useApi';
+import { useGet } from '@/hooks/useApi';
 import { useSearchParams } from 'next/navigation';
 import Pagination from '@/components/Pagination';
 
@@ -10,7 +10,7 @@ const List = () => {
   const query = searchParams.get('query') || '';
   const page = searchParams.get('page') || '';
 
-  const { data, isLoading } = useApi<MovieList>(`/search/movie?query=${query}&page=${page || 1}`);
+  const { data, isLoading } = useGet<MovieList>(`/search/movie?query=${query}&page=${page || 1}`);
 
   return (
     <>

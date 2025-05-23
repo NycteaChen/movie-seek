@@ -3,7 +3,7 @@ import { memo, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Loading from '@/components/Loading';
 import Empty from '@/components/Empty';
-import { useApi } from '@/hooks/useApi';
+import { useGet } from '@/hooks/useApi';
 import Pagination from '@/components/Pagination';
 // import { Button } from '@/components/ui/button';
 // import { cn } from '@/lib/utils';
@@ -13,7 +13,7 @@ const MovieReview = memo(() => {
   const [pageIndex, setPageIndex] = useState<number>(1);
   // const [detailList, setDetailList] = useState<MovieReviewItem['id'][]>([]);
 
-  const { data, isLoading } = useApi<MovieReviewList>(`/movie/${id}/reviews?page=${pageIndex}`);
+  const { data, isLoading } = useGet<MovieReviewList>(`/movie/${id}/reviews?page=${pageIndex}`);
 
   // const showDetailHandler = (id: MovieReviewItem['id']) => {
   //   const list = [...detailList];
