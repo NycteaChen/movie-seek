@@ -3,6 +3,7 @@ import Link from 'next/link';
 import LazyImage from '@/components/LazyImage';
 import Empty from '@/components/Empty';
 import Loading from '@/components/Loading';
+import Bookmark from '@/components/Bookmark';
 
 const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItemData[]; loading?: boolean }) => {
   if (loading) return <Loading />;
@@ -16,7 +17,7 @@ const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItem
                 href={`/movie/${item.id}`}
                 className="group"
               >
-                <article>
+                <article className="relative">
                   <LazyImage
                     src={item.poster_path ? `${process.env.NEXT_PUBLIC_TMDB_IMG_PATH}w342${item.poster_path}` : ''}
                     alt={item.title}
@@ -26,6 +27,10 @@ const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItem
                   />
                   <h4 className="font-bold text-lg md:text-xl mt-2 md:mt-3 group-hover:text-primary duration-300">{item.title}</h4>
                   <h6 className="text-sm md:text-base text-muted">{item.release_date}</h6>
+                  <Bookmark
+                    className="absolute right-3 top-3 z-[2] w-10 h-10 bg-muted"
+                    movieId={item.id}
+                  />
                 </article>
               </Link>
             </li>

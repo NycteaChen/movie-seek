@@ -38,6 +38,19 @@ const Header = memo(({ isFixed }: { isFixed?: boolean }) => {
                 height={24}
               />
             </Button>
+            <Button
+              className="flex-shrink-0 rounded-full p-2"
+              onClick={() => router.push('/bookmark')}
+              variant="ghost"
+              size="icon"
+            >
+              <Image
+                src="/icons/bookmark.svg"
+                alt="bookmark"
+                width={24}
+                height={24}
+              />
+            </Button>
           </div>
         </div>
       </section>

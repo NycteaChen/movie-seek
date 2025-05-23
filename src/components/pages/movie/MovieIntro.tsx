@@ -2,6 +2,7 @@
 import { memo } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import Bookmark from '@/components/Bookmark';
 
 const renderMovieTime = (time: number) => {
   const hour = Math.floor(time / 60);
@@ -46,15 +47,10 @@ const MovieIntro = memo(({ detailData, creditsData, className }: MovieIntroProps
             </li>
           ))}
         </ul>
-        <div className="!mt-5 cursor-pointer group rounded-full bg-foreground/20 flex items-center justify-center w-12 h-12">
-          <Image
-            src={`/icons/bookmark-stroke.svg`}
-            alt="bookmark"
-            width={24}
-            height={24}
-            className="duration-300 group-hover:opacity-50"
-          />
-        </div>
+        <Bookmark
+          movieId={detailData?.id}
+          className="!mt-5 w-12 h-12"
+        />
       </div>
       <div className="space-y-5">
         {detailData?.tagline ? <p className="opacity-70 italic">{detailData?.tagline}</p> : ''}
