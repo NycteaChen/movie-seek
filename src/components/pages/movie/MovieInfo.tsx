@@ -52,7 +52,8 @@ const formatValue = (value: unknown): string => {
   if (!value) return '-';
 
   if (Array.isArray(value)) {
-    return value.map((v) => (typeof v === 'object' ? v.name : v)).join(', ');
+    const mapString = value.map((v) => (typeof v === 'object' ? v.name : v)).join(', ');
+    return mapString || '-';
   } else if (typeof value === 'number' && value) {
     return `$${value.toLocaleString()}`;
   }
