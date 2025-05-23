@@ -17,7 +17,7 @@ type UsePostResult<TResponse> = {
   data: TResponse | null;
   error: Error | null;
   isLoading: boolean;
-  post: (body?: any) => Promise<void>;
+  post: (body?: Record<string, unknown>) => Promise<void>;
 };
 
 export const usePost = <TResponse = unknown>(endpoint: string): UsePostResult<TResponse> => {

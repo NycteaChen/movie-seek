@@ -16,7 +16,7 @@ const Bookmark = memo(({ movieId, className, status = true }: BookmarkProps) => 
 
   const markHandler = useCallback(async () => {
     await post({ media_type: 'movie', media_id: movieId, watchlist: status });
-  }, [movieId]);
+  }, [movieId, post, status]);
 
   useEffect(() => {
     if (data?.success) {
@@ -28,7 +28,7 @@ const Bookmark = memo(({ movieId, className, status = true }: BookmarkProps) => 
     } else if (error) {
       toast.warning(`Failed to ${status ? 'add' : 'remove'} movie to watchlist.`);
     }
-  }, [data, error]);
+  }, [data, error, status]);
 
   return (
     <div
