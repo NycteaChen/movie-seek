@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-const Bar = memo(() => {
+const Bar = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get('query') || '';
   const [keyword, setKeyword] = useState<string>(query);
@@ -45,15 +45,15 @@ const Bar = memo(() => {
       </Button>
     </div>
   );
-});
+};
 
-const SearchBar = () => {
+const SearchBar = memo(() => {
   return (
     <Suspense>
       <Bar />
     </Suspense>
   );
-};
+});
 
 SearchBar.displayName = 'SearchBar';
 export default SearchBar;

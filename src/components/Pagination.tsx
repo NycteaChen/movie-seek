@@ -11,7 +11,7 @@ interface PaginationProps {
   pageIndex?: number;
 }
 
-const PaginationBar = memo(({ maxVisiblePages = 3, totalPages = 1, pageIndex = 1, setPageIndex }: PaginationProps) => {
+const PaginationBar = ({ maxVisiblePages = 3, totalPages = 1, pageIndex = 1, setPageIndex }: PaginationProps) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
@@ -102,15 +102,15 @@ const PaginationBar = memo(({ maxVisiblePages = 3, totalPages = 1, pageIndex = 1
       )}
     </>
   );
-});
+};
 
-const Pagination = ({ ...props }) => {
+const Pagination = memo(({ ...props }: PaginationProps) => {
   return (
     <Suspense>
       <PaginationBar {...props} />
     </Suspense>
   );
-};
+});
 
 Pagination.displayName = 'Pagination';
 export default Pagination;

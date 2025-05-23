@@ -5,7 +5,7 @@ import { useApi } from '@/hooks/useApi';
 import { useSearchParams } from 'next/navigation';
 import Pagination from '@/components/Pagination';
 
-const List = memo(() => {
+const List = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get('query') || '';
   const page = searchParams.get('page') || '';
@@ -19,18 +19,18 @@ const List = memo(() => {
         list={data?.results || []}
         loading={isLoading}
       />
-      <Pagination totalPages={data?.total_pages} />
+      <Pagination totalPages={data?.total_pages || 1} />
     </>
   );
-});
+};
 
-const SearchList = () => {
+const SearchList = memo(() => {
   return (
     <Suspense>
       <List />
     </Suspense>
   );
-};
+});
 
 SearchList.displayName = 'SearchList';
 export default SearchList;
