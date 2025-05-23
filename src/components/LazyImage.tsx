@@ -14,14 +14,16 @@ const LazyImage = memo((props: ImageProps & { containerClass?: string }) => {
   }, [props]);
 
   return (
-    <div className={cn('relative flex-shrink-0', props.containerClass)}>
+    <div className={cn('w-full h-full relative flex-shrink-0', props.containerClass)}>
       {!loaded && <div className={cn('absolute inset-0 bg-muted animate-pulse z-0', props.className)} />}
       {props.src ? (
         <Image
           src={props.src}
           alt={props.alt}
           {...imageProps}
-          onLoad={() => setLoaded(true)}
+          onLoad={() => {
+            setLoaded(true);
+          }}
           className={cn('object-cover transition-all duration-500 ease-in-out', loaded ? 'opacity-100' : 'opacity-0', props.className)}
         />
       ) : (
