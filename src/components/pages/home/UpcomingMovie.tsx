@@ -5,7 +5,7 @@ import ListArea from '@/components/pages/home/ListArea';
 import { useApi } from '@/hooks/useApi';
 
 const UpcomingMovie = memo(() => {
-  const { data, isLoading } = useApi('/movie/upcoming');
+  const { data, isLoading } = useApi<MovieList>('/movie/upcoming');
 
   return (
     <ListArea

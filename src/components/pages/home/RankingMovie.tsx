@@ -5,7 +5,7 @@ import ListArea from '@/components/pages/home/ListArea';
 import { useApi } from '@/hooks/useApi';
 
 const RankingMovie = memo(() => {
-  const { data, isLoading } = useApi('/movie/top_rated');
+  const { data, isLoading } = useApi<MovieList>('/movie/top_rated');
 
   return (
     <ListArea

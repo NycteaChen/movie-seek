@@ -4,10 +4,10 @@ import axios from '@/lib/axios';
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
-export function useApi(endpoint: string) {
-  const { data, error, isLoading } = useSWR(endpoint, fetcher, {
+export const useApi = <T>(endpoint: string) => {
+  const { data, error, isLoading } = useSWR<T>(endpoint, fetcher, {
     revalidateOnFocus: false
   });
 
   return { data, error, isLoading };
-}
+};
