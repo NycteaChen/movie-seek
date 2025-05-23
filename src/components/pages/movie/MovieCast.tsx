@@ -8,8 +8,6 @@ interface MovieCastProps {
   loading?: boolean;
 }
 
-const imgPath = 'https://image.tmdb.org/t/p/';
-
 const MovieCast = memo(({ castList, loading }: MovieCastProps) => {
   if (loading) return <Loading />;
   return (
@@ -20,7 +18,7 @@ const MovieCast = memo(({ castList, loading }: MovieCastProps) => {
             <li key={item.id}>
               <article>
                 <LazyImage
-                  src={item.profile_path ? `${imgPath}original${item.profile_path}` : ''}
+                  src={item.profile_path ? `${process.env.NEXT_PUBLIC_TMDB_IMG_PATH}original${item.profile_path}` : ''}
                   alt={`${item.name}-profile`}
                   width={1625}
                   height={2438}

@@ -9,8 +9,6 @@ import MovieReview from '@/components/pages/movie/MovieReview';
 import { useApi } from '@/hooks/useApi';
 import Loading from '@/components/Loading';
 
-const imgPath = 'https://image.tmdb.org/t/p/';
-
 const MovieDetail = () => {
   const { id } = useParams();
 
@@ -25,7 +23,7 @@ const MovieDetail = () => {
     <div>
       <div className="relative w-full min-h-[360px] flex justify-center items-center">
         <Image
-          src={coverImage ? `${imgPath}original${coverImage}` : ''}
+          src={coverImage ? `${process.env.NEXT_PUBLIC_TMDB_IMG_PATH}original${coverImage}` : ''}
           alt={`${detailData?.title}-cover`}
           width={3840}
           height={2160}
@@ -35,7 +33,7 @@ const MovieDetail = () => {
         <section className="w-full h-full z-[1] relative">
           <div className="container-sm h-full flex gap-12 justify-center md:justify-start">
             <LazyImage
-              src={detailData?.poster_path ? `${imgPath}original${detailData?.poster_path}` : ''}
+              src={detailData?.poster_path ? `${process.env.NEXT_PUBLIC_TMDB_IMG_PATH}w500${detailData?.poster_path}` : ''}
               alt={`${detailData?.title}-post`}
               width={320}
               height={480}

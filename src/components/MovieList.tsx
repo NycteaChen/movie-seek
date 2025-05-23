@@ -4,8 +4,6 @@ import LazyImage from '@/components/LazyImage';
 import Empty from '@/components/Empty';
 import Loading from '@/components/Loading';
 
-const imgPath = 'https://image.tmdb.org/t/p/';
-
 const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItemData[]; loading?: boolean }) => {
   if (loading) return <Loading />;
   return (
@@ -20,7 +18,7 @@ const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItem
               >
                 <article>
                   <LazyImage
-                    src={item.poster_path ? `${imgPath}original${item.poster_path}` : ''}
+                    src={item.poster_path ? `${process.env.NEXT_PUBLIC_TMDB_IMG_PATH}w342${item.poster_path}` : ''}
                     alt={item.title}
                     width={420}
                     height={630}
