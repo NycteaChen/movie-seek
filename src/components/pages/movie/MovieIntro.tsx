@@ -37,7 +37,12 @@ const MovieIntro = memo(({ detailData, creditsData, className }: MovieIntroProps
         </div>
         <ul className="flex items-center gap-2 flex-wrap">
           {detailData?.genres?.map((item) => (
-            <li className="py-1 px-3 border border-solid border-foreground rounded-3xl">{item.name}</li>
+            <li
+              key={item.name}
+              className="py-1 px-3 border border-solid border-foreground rounded-3xl"
+            >
+              {item.name}
+            </li>
           ))}
         </ul>
         <div className="!mt-5 cursor-pointer group rounded-full bg-foreground/20 flex items-center justify-center w-12 h-12">

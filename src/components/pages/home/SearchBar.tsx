@@ -11,7 +11,7 @@ const SearchBar = memo(() => {
 
   const redirectToSearch = useCallback(() => {
     router.push(`/search?query=${keyword}`);
-  }, [keyword]);
+  }, [keyword, router]);
 
   return (
     <div className="flex items-center space-x-5 w-full max-w-[500px] bg-primary/80 rounded-[25px] px-2 py-1.5">
