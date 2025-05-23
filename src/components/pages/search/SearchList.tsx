@@ -5,7 +5,7 @@ import { useApi } from '@/hooks/useApi';
 import { useSearchParams } from 'next/navigation';
 import Pagination from '@/components/Pagination';
 
-const SearchList = memo(() => {
+const List = memo(() => {
   const searchParams = useSearchParams();
   const query = searchParams.get('query') || '';
   const page = searchParams.get('page') || '';
@@ -13,16 +13,24 @@ const SearchList = memo(() => {
   const { data, isLoading } = useApi<MovieList>(`/search/movie?query=${query}&page=${page || 1}`);
 
   return (
-    <Suspense>
+    <>
       <ListArea
         title={`${data?.total_results !== undefined ? `${data?.total_results} ` : '-- '}Search Results`}
         list={data?.results || []}
         loading={isLoading}
       />
       <Pagination totalPages={data?.total_pages} />
-    </Suspense>
+    </>
   );
 });
+
+const SearchList = () => {
+  return (
+    <Suspense>
+      <List />
+    </Suspense>
+  );
+};
 
 SearchList.displayName = 'SearchList';
 export default SearchList;

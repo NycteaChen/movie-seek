@@ -1,5 +1,5 @@
 'use client';
-import { memo, useState, Suspense } from 'react';
+import { memo, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Loading from '@/components/Loading';
 import Empty from '@/components/Empty';
@@ -47,13 +47,11 @@ const MovieReview = memo(() => {
       ) : (
         <Empty />
       )}
-      <Suspense>
-        <Pagination
-          totalPages={5}
-          pageIndex={pageIndex}
-          setPageIndex={setPageIndex}
-        />
-      </Suspense>
+      <Pagination
+        totalPages={data?.total_pages || 1}
+        pageIndex={pageIndex}
+        setPageIndex={setPageIndex}
+      />
     </div>
   );
 });
