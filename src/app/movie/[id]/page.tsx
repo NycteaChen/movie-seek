@@ -72,7 +72,7 @@ const MovieDetail = () => {
               />
             </TabsContent>
             <TabsContent value="reviews">
-              <MovieReview movieId={Number(id)} />
+              <MovieReview />
             </TabsContent>
           </Tabs>
         </div>

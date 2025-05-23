@@ -7,19 +7,25 @@ import { Pagination as ShaPagination, PaginationContent, PaginationEllipsis, Pag
 interface PaginationProps {
   totalPages?: number;
   maxVisiblePages?: number;
+  setPageIndex?: React.Dispatch<React.SetStateAction<number>>;
+  pageIndex?: number;
 }
 
-const Pagination = memo(({ maxVisiblePages = 3, totalPages = 1 }: PaginationProps) => {
+const Pagination = memo(({ maxVisiblePages = 3, totalPages = 1, pageIndex = 1, setPageIndex }: PaginationProps) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
-  const currentPage = parseInt(searchParams.get('page') || '1', 10);
+  const currentPage = parseInt(searchParams.get('page') || String(pageIndex), 10);
 
   const goToPage = (page: number) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set('page', String(page));
-    router.push(`${pathname}?${params.toString()}`);
+    if (setPageIndex) {
+      setPageIndex(page);
+    } else {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set('page', String(page));
+      router.push(`${pathname}?${params.toString()}`);
+    }
   };
 
   const generatePageNumbers = () => {

@@ -1,37 +1,31 @@
-import { memo } from 'react';
+'use client';
+import { memo, useState } from 'react';
+import { useParams } from 'next/navigation';
 import Loading from '@/components/Loading';
 import Empty from '@/components/Empty';
+import { useApi } from '@/hooks/useApi';
+import Pagination from '@/components/Pagination';
 // import { Button } from '@/components/ui/button';
 // import { cn } from '@/lib/utils';
 
-interface MovieReviewProps {
-  movieId: MovieData['id'];
-}
-
-const mockReviews = {
-  id: 552524,
-  page: 1,
-  results: [],
-  total_pages: 1,
-  total_results: 0
-};
-
-const MovieReview = memo(({ movieId }: MovieReviewProps) => {
+const MovieReview = memo(() => {
+  const { id } = useParams();
+  const [pageIndex, setPageIndex] = useState<number>(1);
   // const [detailList, setDetailList] = useState<MovieReviewItem['id'][]>([]);
-  console.log('review movieId:>> ', movieId);
+
+  const { data, isLoading } = useApi<MovieReviewList>(`/movie/${id}/reviews?page=${pageIndex}`);
 
   // const showDetailHandler = (id: MovieReviewItem['id']) => {
   //   const list = [...detailList];
   //   list.push(id);
   //   setDetailList(list);
   // };
-  const loading = false;
-  if (loading) return <Loading />;
+  if (isLoading) return <Loading />;
   return (
     <div>
-      {mockReviews?.results?.length ? (
+      {data?.results?.length ? (
         <ul className="flex flex-col gap-4">
-          {mockReviews?.results?.map((item: MovieReviewItem) => (
+          {data?.results?.map((item: MovieReviewItem) => (
             <li key={item.id}>
               <article className="bg-black shadow-2xl rounded-2xl p-6 md:py-8 md:px-9">
                 <h4 className="font-bold text-xl mb-4">{item.author}</h4>
@@ -53,6 +47,11 @@ const MovieReview = memo(({ movieId }: MovieReviewProps) => {
       ) : (
         <Empty />
       )}
+      <Pagination
+        totalPages={5}
+        pageIndex={pageIndex}
+        setPageIndex={setPageIndex}
+      />
     </div>
   );
 });
