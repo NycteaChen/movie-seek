@@ -356,7 +356,7 @@ const Search = async ({ searchParams }: SearchParamsType) => {
   const { query } = params;
   const loading = false;
   return (
-    <div className="pt-20">
+    <div>
       <section>
         <div className="container-sm">keyword: {query}</div>
       </section>
