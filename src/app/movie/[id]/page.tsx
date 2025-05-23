@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import LazyImage from '@/components/LazyImage';
 import MovieIntro from '@/components/pages/movie/MovieIntro';
-import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import MovieInfo from '@/components/pages/movie/MovieInfo';
 import MovieReview from '@/components/pages/movie/MovieReview';
@@ -2195,7 +2195,7 @@ const MovieDetail = async ({ params }: ParamsType) => {
           <MovieIntro
             detailData={mockDetail}
             creditsData={mockCredits}
-            className="pb-5 border-b border-solid border-muted mb-5 md:hidden"
+            className="pb-10 border-b border-solid border-muted mb-10 md:hidden"
           />
           <Tabs defaultValue="info">
             <TabsList className="grid w-full grid-cols-2 md:w-3/5 md:max-w-[400px] mb-3 md:mb-5">
@@ -2205,8 +2205,8 @@ const MovieDetail = async ({ params }: ParamsType) => {
             <TabsContent value="info">
               <MovieInfo
                 detailData={mockDetail}
-                creditsData={mockCredits}
-                videoData={mockVideos}
+                castList={mockCredits.cast || []}
+                trailerData={mockVideos.results?.filter((item) => item.type.toLowerCase() === 'trailer' && item.official && item.site.toLowerCase() === 'youtube')?.[0]}
               />
             </TabsContent>
             <TabsContent value="reviews">

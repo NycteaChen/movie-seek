@@ -58,11 +58,11 @@ const MovieIntro = memo(({ detailData, creditsData, className }: MovieIntroProps
       <div className="space-y-5">
         <p className="opacity-70 italic">{detailData.tagline}</p>
         <div>
-          <h3 className="font-bold text-xl mb-2">Overview</h3>
+          <h4 className="font-bold text-lg md:text-xl mb-2">Overview</h4>
           <p>{detailData.overview || '-'}</p>
         </div>
         <div>
-          <h3 className="font-bold text-xl mb-2">Director</h3>
+          <h4 className="font-bold text-lg md:text-xl mb-2">Director</h4>
           <p>{creditsData?.crew?.find((item) => item.job?.toLowerCase() === 'director')?.name || '-'}</p>
         </div>
       </div>
