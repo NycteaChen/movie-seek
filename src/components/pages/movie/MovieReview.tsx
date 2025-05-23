@@ -31,7 +31,7 @@ const MovieReview = memo(({ movieId }: MovieReviewProps) => {
     <div>
       {mockReviews?.results?.length ? (
         <ul className="flex flex-col gap-4">
-          {mockReviews?.results?.map((item) => (
+          {mockReviews?.results?.map((item: MovieReviewItem) => (
             <li key={item.id}>
               <article className="bg-black shadow-2xl rounded-2xl p-6 md:py-8 md:px-9">
                 <h4 className="font-bold text-xl mb-4">{item.author}</h4>
