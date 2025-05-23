@@ -24,7 +24,7 @@ const Header = memo(({ isFixed }: { isFixed?: boolean }) => {
       <section className="!py-3">
         <div className="container flex justify-between items-center">
           <Logo />
-          <div>
+          <div className="space-x-3">
             <Button
               className="flex-shrink-0 rounded-full p-2"
               onClick={() => router.push('/search')}
@@ -40,12 +40,12 @@ const Header = memo(({ isFixed }: { isFixed?: boolean }) => {
             </Button>
             <Button
               className="flex-shrink-0 rounded-full p-2"
-              onClick={() => router.push('/bookmark')}
+              onClick={() => router.push('/watch-list')}
               variant="ghost"
               size="icon"
             >
               <Image
-                src="/icons/bookmark.svg"
+                src="/icons/bookmark-stroke.svg"
                 alt="bookmark"
                 width={24}
                 height={24}
