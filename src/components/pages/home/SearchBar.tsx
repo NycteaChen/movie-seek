@@ -18,6 +18,7 @@ const SearchBar = memo(() => {
       <Input
         className="border-0 rounded-[20px] !bg-foreground !text-background"
         placeholder="Search for a movie"
+        inputMode="search"
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             redirectToSearch();
