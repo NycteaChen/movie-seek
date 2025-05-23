@@ -56,6 +56,7 @@ const MovieIntro = memo(({ detailData, creditsData, className }: MovieIntroProps
         </div>
       </div>
       <div className="space-y-5">
+        <p className="opacity-70 italic">{detailData.tagline}</p>
         <div>
           <h3 className="font-bold text-xl mb-2">Overview</h3>
           <p>{detailData.overview || '-'}</p>
