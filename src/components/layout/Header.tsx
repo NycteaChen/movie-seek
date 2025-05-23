@@ -1,9 +1,13 @@
+'use client';
 import { memo } from 'react';
 import Logo from '@/components/Logo';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const Header = memo(() => {
+  const pathname = usePathname();
   return (
-    <header className="fixed top-0 z-20 w-full border-b border-b-foreground flex items-center bg-gradient-to-b from-background to-transparent">
+    <header className={cn('z-20 w-full flex items-center', pathname === '/' ? 'absolute top-0 bg-gradient-to-b from-background to-transparent border-b border-b-foreground' : 'relative bg-black')}>
       <section className="!py-3">
         <div className="container flex justify-between">
           <Logo />
