@@ -1,5 +1,7 @@
 interface MovieData {
+  adult: boolean;
   id: number;
+  backdrop_path: string;
   original_language: string;
   original_title: string;
   overview: string;
@@ -13,10 +15,21 @@ interface MovieData {
 }
 
 interface MovieDetailData extends MovieData {
+  origin_country: string[];
+  production_companies: { id: number; logo_path: string | null; name: string; origin_country: string }[];
+  production_countries: { iso_3166_1: string; name: string }[];
+  spoken_languages: { english_name: string; iso_639_1: string; name: string }[];
+  imdb_id: string;
+  belongs_to_collection: string | null;
+  tagline: string;
   genres: { id: number; name: string }[];
+  budget: number;
+  homepage: string;
+  revenue: number;
   runtime: number;
+  status: string;
 }
-interface SearchMovieData extends MovieData {
+interface MovieItemData extends MovieData {
   genre_ids: number[];
 }
 

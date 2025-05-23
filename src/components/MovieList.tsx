@@ -6,7 +6,7 @@ import Loading from '@/components/Loading';
 
 const imgPath = 'https://image.tmdb.org/t/p/';
 
-const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | SearchMovieData[]; loading?: boolean }) => {
+const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItemData[]; loading?: boolean }) => {
   if (loading) return <Loading />;
   return (
     <>
