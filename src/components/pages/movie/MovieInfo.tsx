@@ -78,7 +78,7 @@ const MovieInfo = memo(({ detailData, castList, trailerData }: MovieInfoProps) =
         ))}
       </ul>
       <div className="pb-10 border-b border-solid border-muted">
-        <h4 className="font-bold text-lg md:text-xl mb-4">Trailer</h4>
+        <h3 className="font-bold text-xl md:text-3xl mb-4">Trailer</h3>
         {trailerData ? (
           <div className="relative w-full h-0 pb-[56.25%]">
             <iframe
@@ -96,7 +96,7 @@ const MovieInfo = memo(({ detailData, castList, trailerData }: MovieInfoProps) =
         )}
       </div>
       <div className="pb-10">
-        <h4 className="font-bold text-lg md:text-xl mb-4">Cast</h4>
+        <h3 className="font-bold text-xl md:text-3xl mb-4">Cast</h3>
         <MovieCast castList={castList} />
       </div>
     </div>

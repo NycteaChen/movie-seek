@@ -20,7 +20,7 @@ const MovieCast = memo(({ castList }: MovieCastProps) => {
               height={2438}
               className="aspect-2/3 rounded-md"
             />
-            <h5 className="font-bold md:text-lg mt-2 md:mt-3 group-hover:text-primary duration-300">{item.name}</h5>
+            <h4 className="font-bold text-lg md:text-xl mt-2 md:mt-3 group-hover:text-primary duration-300">{item.name}</h4>
             <h6 className="text-sm md:text-base text-muted">{item.character}</h6>
           </article>
         </li>

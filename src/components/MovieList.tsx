@@ -27,7 +27,7 @@ const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItem
                     className="aspect-2/3 rounded-md duration-300 border-solid border-transparent border-2 group-hover:scale-[1.02] group-hover:border-primary"
                   />
                   <h4 className="font-bold text-lg md:text-xl mt-2 md:mt-3 group-hover:text-primary duration-300">{item.title}</h4>
-                  <h6 className="text-sm text-muted">{item.release_date}</h6>
+                  <h6 className="text-sm md:text-base text-muted">{item.release_date}</h6>
                 </article>
               </Link>
             </li>
