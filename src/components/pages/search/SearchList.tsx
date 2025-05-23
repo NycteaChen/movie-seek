@@ -10,7 +10,7 @@ const SearchList = memo(() => {
   const query = searchParams.get('query') || '';
   const page = searchParams.get('page') || '';
 
-  const { data, error, isLoading } = useApi<MovieList>(`/search/movie?query=${query}&page=${page || 1}`);
+  const { data, isLoading } = useApi<MovieList>(`/search/movie?query=${query}&page=${page || 1}`);
 
   return (
     <>
