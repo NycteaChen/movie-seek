@@ -53,42 +53,48 @@ const Pagination = memo(({ maxVisiblePages = 3, totalPages = 1 }: PaginationProp
   const pages = generatePageNumbers();
 
   return (
-    <section>
-      <div className="container">
-        <ShaPagination className="scale-80 sm:scale-100">
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                disabled={currentPage === 1}
-                onClick={() => goToPage(currentPage - 1)}
-              />
-            </PaginationItem>
-            {pages.map((page, index) =>
-              page === '...' ? (
-                <PaginationItem key={index}>
-                  <PaginationEllipsis />
+    <>
+      {totalPages > 1 ? (
+        <section>
+          <div className="container">
+            <ShaPagination className="scale-80 sm:scale-100">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious
+                    disabled={currentPage === 1}
+                    onClick={() => goToPage(currentPage - 1)}
+                  />
                 </PaginationItem>
-              ) : (
-                <PaginationItem key={page}>
-                  <PaginationLink
-                    isActive={page === currentPage}
-                    onClick={() => goToPage(page)}
-                  >
-                    {page}
-                  </PaginationLink>
+                {pages.map((page, index) =>
+                  page === '...' ? (
+                    <PaginationItem key={index}>
+                      <PaginationEllipsis />
+                    </PaginationItem>
+                  ) : (
+                    <PaginationItem key={page}>
+                      <PaginationLink
+                        isActive={page === currentPage}
+                        onClick={() => goToPage(page)}
+                      >
+                        {page}
+                      </PaginationLink>
+                    </PaginationItem>
+                  )
+                )}
+                <PaginationItem>
+                  <PaginationNext
+                    onClick={() => goToPage(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                  />
                 </PaginationItem>
-              )
-            )}
-            <PaginationItem>
-              <PaginationNext
-                onClick={() => goToPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </ShaPagination>
-      </div>
-    </section>
+              </PaginationContent>
+            </ShaPagination>
+          </div>
+        </section>
+      ) : (
+        ''
+      )}
+    </>
   );
 });
 
