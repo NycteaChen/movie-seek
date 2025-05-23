@@ -8,9 +8,10 @@ interface ListAreaProps {
   list: MovieItemData[];
   sectionClass?: string;
   loading?: boolean;
+  watchListStatus?: boolean;
 }
 
-const ListArea = memo(({ title, iconName, list, sectionClass, loading }: ListAreaProps) => {
+const ListArea = memo(({ title, iconName, list, sectionClass, loading, watchListStatus }: ListAreaProps) => {
   return (
     <section className={sectionClass}>
       <div className="container-sm">
@@ -29,6 +30,7 @@ const ListArea = memo(({ title, iconName, list, sectionClass, loading }: ListAre
         <MovieList
           list={list}
           loading={loading}
+          watchListStatus={watchListStatus}
         />
       </div>
     </section>

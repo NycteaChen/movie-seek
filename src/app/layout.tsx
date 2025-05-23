@@ -4,6 +4,7 @@ import '@/styles/global.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ScrollTop from '@/components/layout/ScrollTop';
+import { Toaster } from '@/components/ui/sonner';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,6 +34,7 @@ export default function RootLayout({
         <main className="min-h-screen font-[family-name:var(--font-geist-sans)]">{children}</main>
         <Footer />
         <ScrollTop />
+        <Toaster />
       </body>
     </html>
   );

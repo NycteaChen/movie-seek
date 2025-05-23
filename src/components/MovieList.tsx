@@ -5,7 +5,7 @@ import Empty from '@/components/Empty';
 import Loading from '@/components/Loading';
 import Bookmark from '@/components/Bookmark';
 
-const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItemData[]; loading?: boolean }) => {
+const MovieList = memo(({ list, loading, watchListStatus = true }: { list: MovieDetailData[] | MovieItemData[]; loading?: boolean; watchListStatus?: boolean }) => {
   if (loading) return <Loading />;
   return (
     <>
@@ -30,6 +30,7 @@ const MovieList = memo(({ list, loading }: { list: MovieDetailData[] | MovieItem
                   <Bookmark
                     className="absolute right-3 top-3 z-[2] w-10 h-10 bg-muted"
                     movieId={item.id}
+                    status={watchListStatus}
                   />
                 </article>
               </Link>
