@@ -1,3 +1,4 @@
+'use client';
 import { memo } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
@@ -9,8 +10,8 @@ const renderMovieTime = (time: number) => {
 };
 
 interface MovieIntroProps {
-  detailData: MovieDetailData;
-  creditsData: MovieCreditsData;
+  detailData?: MovieDetailData;
+  creditsData?: MovieCreditsData;
   className?: string;
 }
 
@@ -19,7 +20,7 @@ const MovieIntro = memo(({ detailData, creditsData, className }: MovieIntroProps
     <div className={cn('flex w-full flex-col gap-5', className)}>
       <div className="space-y-3">
         <h2 className="text-4xl font-bold mb-3">
-          {detailData.title} <span className="text-foreground/70 font-normal">({String(detailData?.release_date)?.split('-')?.[0] || '-'})</span>
+          {detailData?.title} <span className="text-foreground/70 font-normal">({String(detailData?.release_date)?.split('-')?.[0] || '-'})</span>
         </h2>
         <div className="flex items-start gap-2 mb-3">
           <Image
@@ -31,7 +32,7 @@ const MovieIntro = memo(({ detailData, creditsData, className }: MovieIntroProps
           <span>{detailData?.vote_average || '-'}</span>
         </div>
         <div className="flex gap-2 items-center mb-3">
-          <span>{detailData?.release_date}</span>
+          <span>{detailData?.release_date || '-'}</span>
           <span>•</span>
           <span>{renderMovieTime(Number(detailData?.runtime) || 0)}</span>
         </div>
@@ -56,10 +57,10 @@ const MovieIntro = memo(({ detailData, creditsData, className }: MovieIntroProps
         </div>
       </div>
       <div className="space-y-5">
-        <p className="opacity-70 italic">{detailData.tagline}</p>
+        {detailData?.tagline ? <p className="opacity-70 italic">{detailData?.tagline}</p> : ''}
         <div>
           <h4 className="font-bold text-lg md:text-xl mb-2">Overview</h4>
-          <p>{detailData.overview || '-'}</p>
+          <p>{detailData?.overview || '-'}</p>
         </div>
         <div>
           <h4 className="font-bold text-lg md:text-xl mb-2">Director</h4>
