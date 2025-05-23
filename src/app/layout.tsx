@@ -29,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
+        <Header isFixed={true} />
         <main className="min-h-screen font-[family-name:var(--font-geist-sans)]">{children}</main>
         <Footer />
         <ScrollTop />
