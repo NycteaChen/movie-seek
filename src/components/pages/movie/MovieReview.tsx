@@ -29,7 +29,7 @@ const MovieReview = memo(() => {
             <li key={item.id}>
               <article className="bg-black shadow-2xl rounded-2xl p-6 md:py-8 md:px-9">
                 <h4 className="font-bold text-xl mb-4">{item.author}</h4>
-                <p className="whitespace-pre-line">{item.content}</p>
+                <p className="whitespace-pre-line break-all leading-[1.6] tracking-wider">{item.content}</p>
                 {/* <p className={cn('whitespace-pre-line', !detailList?.includes(item.id) && 'line-clamp-4')}>{item.content}</p> */}
                 {/* {!detailList?.includes(item.id) && (
                   <Button
